@@ -63,11 +63,11 @@
 //   }
 // });
 
-// // 👇 THIS is your connection + server starter
+// //  THIS is your connection + server starter
 // const startServer = async () => {
 //   try {
 //     await connectDB();
-//     app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+//     app.listen(PORT, () => console.log(` Server running on port ${PORT}`));
 //   } catch (err) {
 //     console.error(' Failed to connect to MongoDB:', err);
 //   }
@@ -104,6 +104,15 @@ app.use(cors());
 const FEEDS = [
   'https://jobicy.com/?feed=job_feed',
   'https://jobicy.com/?feed=job_feed&job_categories=data-science',
+  ' https://jobicy.com/?feed=job_feed ',
+  ' https://jobicy.com/?feed=job_feed&job_categories=smm&job_types=full-time ',
+ 'https://jobicy.com/?feed=job_feed&job_categories=seller&job_types=full-time&search_region=france',
+ 'https://jobicy.com/?feed=job_feed&job_categories=design-multimedia' ,
+//  https://jobicy.com/?feed=job_feed&job_categories=data-science 
+//  https://jobicy.com/?feed=job_feed&job_categories=copywriting 
+//  https://jobicy.com/?feed=job_feed&job_categories=business 
+//  https://jobicy.com/?feed=job_feed&job_categories=management 
+' https://www.higheredjobs.com/rss/articleFeed.cfm',
   // Add more feeds if needed
 ];
 
@@ -111,10 +120,10 @@ const FEEDS = [
 app.get('/run-import', async (req, res) => {
   try {
     await Promise.all(FEEDS.map(url => jobQueue.add('import-job', { url })));
-    console.log('✅ Jobs successfully added to queue');
+    console.log(' Jobs successfully added to queue');
     res.status(200).json({ message: 'Import jobs enqueued successfully!' });
   } catch (err) {
-    console.error('❌ Failed to enqueue jobs:', err);
+    console.error(' Failed to enqueue jobs:', err);
     res.status(500).json({ error: 'Failed to enqueue jobs' });
   }
 });
@@ -123,9 +132,9 @@ app.get('/run-import', async (req, res) => {
 const startServer = async () => {
   try {
     await connectDB();
-    app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+    app.listen(PORT, () => console.log(` Server running on port ${PORT}`));
   } catch (err) {
-    console.error('❌ Failed to connect to MongoDB:', err);
+    console.error(' Failed to connect to MongoDB:', err);
   }
 };
 

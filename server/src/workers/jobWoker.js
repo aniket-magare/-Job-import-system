@@ -2,9 +2,9 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 
 mongoose.connect(process.env.MONGODB_URI)
-  .then(() => console.log('✅ Worker connected to MongoDB'))
+  .then(() => console.log(' Worker connected to MongoDB'))
   .catch((err) => {
-    console.error('❌ Worker MongoDB connection error:', err.message);
+    console.error(' Worker MongoDB connection error:', err.message);
     process.exit(1);
   });
 
@@ -67,7 +67,7 @@ const worker = new Worker(
         failedJobs,
       });
 
-      console.log(`✅ Completed import from ${url}`);
+      console.log(` Completed import from ${url}`);
     } catch (err) {
       console.error(` Error processing job for ${url}`, err);
     }

@@ -26,7 +26,7 @@ export default function ImportLogsPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-  //  fetch('http://localhost:5000/api/imort-log') // ✅ Matches your backend route
+  //  fetch('http://localhost:5000/api/imort-log') //  Matches your backend route
   fetch('http://localhost:5000/api/import-logs')
 
       .then((res) => res.json())
