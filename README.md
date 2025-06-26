@@ -92,5 +92,5 @@ GET /health – Quick API health check
 Bonus Features Implemented
 ✅ Environment-based batch size and concurrency ✅ Scalable job import via queue ✅ Responsive admin UI ✅ Clean .gitignore with .env safety ⚙️ Deployment-ready with .env.example files
 
-(Coming soon: Retry strategy, MongoDB Atlas & Redis Cloud switch)
+
 
